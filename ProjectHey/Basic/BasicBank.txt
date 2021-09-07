@@ -1,0 +1,51 @@
+import java.util.*;
+public class Loop {
+public static void main(String[]args) {
+
+Scanner input = new Scanner(System.in);
+String name, a1;
+double num,num1,average,num2;
+int perl;
+System.out.print("\t+Banking System+\nName: ");
+name = input.nextLine();
+System.out.print("Balance: ");
+num = input.nextDouble();
+System.out.print("\t+Bank+\nName: "+name+"\nBalance: "+num+"\n[1]Online Shop [0]exit\n");
+perl = input.nextInt();
+
+switch(perl)
+{
+case 1:
+System.out.println("\t+Bank+\nName: "+name+"\nBalance: "+num);
+System.out.println("Type [1] to start [0]to end\n");
+int pera = input.nextInt();
+
+if(pera == 1) {
+System.out.println("\t+Transac+\nPay name: ");
+a1 = input.next();
+System.out.println("Cost: ");
+num2 = input.nextDouble();
+//Shift
+average =(num2 - num);
+System.out.println("\t+Balance+\nName: "+name+"\nBalance: "+average+"\n\tLog");
+System.out.print("Name x Cost\n");
+System.out.print(a1+" "+num2+" - "+num);
+}else {
+System.out.print("Invalid number!");
+}
+break;
+case 0:
+System.out.print("\tTry again?\t[1]Proceed [2]exit");
+int per2 = input.nextInt();
+if(per2 == 2) {
+System.out.print("Thank You");
+input.close();
+
+}
+
+}
+}
+
+
+
+}

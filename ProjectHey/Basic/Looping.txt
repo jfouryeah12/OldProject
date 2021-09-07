@@ -1,0 +1,51 @@
+import java.util.*;
+public class Maximum {
+public static void Larger(int[] num) {
+
+//this method is for loop
+Arrays.sort(num); //this is uses to call a array(Declaration) example int[]pogi
+int n = num.length;
+int max = 0, count = 0;
+
+for(int i = 1; i <= n; i++){
+
+if(count<10){
+if(max!=num[n-i])
+{
+// This function hold the value from num
+System.out.println("["+num[n-i]+"]");
+max = num[n-i];
+count++;
+}
+}
+System.out.print("");
+}
+//After the Count meet the requirements of 10 limits looping they will continue to proceed to other go
+//Using Finalizing method using loop we just take the first number in large
+//to catch the expected output.
+if(count > 10) {
+}
+int a = num.length;
+int larger = 0, counter = 0;
+
+for(int counts = 1; counts <= a; counts++){
+//I just copy the first method to easily catch the largest number.
+if(counter<1){
+if(max!=num[a-counts])
+{
+// This function hold the value from num
+System.out.println("[The Largest Number]: "+"["+num[a-counts]+"]"); //Output "End"
+break;//Use break to stop the program.
+}
+}
+}
+}//End
+
+public static void main(String[]arg) {
+int[] num = {15, 20, 7, 8, 28, 22, 43, 12, 35, 3};//the set values
+System.out.print("\t*[The 10 Largest Number]*\n");
+Larger(num);//Call the using declare void name function
+}
+}//End
+
+//*I use For looping as sir jeff said.

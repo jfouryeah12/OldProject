@@ -1,0 +1,141 @@
+import java.util.*;
+
+public class CSBanking{
+public static void ViewAccount(String[]nm, String[]addrs ,int[]pin, int Id, double Bal){
+Scanner sc = new Scanner(System.in);
+boolean flag = true;
+System.out.println("\n---------------------------------\n|Account Name: " + nm[Idnm(Id-1)] + "\tID: " + Idnm(Id-1) + "\t|\n---------------------------------\n|Address: " + addrs[Idnm(Id-1)] + "\t\t\t|\n|Pincode: " + pin[Idnm(Id-1)] + "\t\t\t|\n|Balance: " + Cbal(Bal) + "\t\t|");
+System.out.println("|\t\t\t\t|\n---------------------------------\n|Type 'Back' \t Type 'Exit' \t|" + "\n---------------------------------\n");
+while(flag){
+String res = sc.next();
+switch(res){
+case "Exit":
+case "exit":
+sc.close();
+flag = false;
+break;
+case "Back":
+case "back":
+Banking(nm,addrs,pin,Id,Bal);
+break;
+default:
+System.out.println("Type 'Back' to back and 'Exit' to exit the System");
+}
+}
+}
+public static double Cbal(double Bal){
+return Bal;
+}
+public static int Idnm(int Id){
+if(Id<15){
+Id++;
+return Id;
+}
+else{
+System.out.println("No Slots Available!");
+return Id;
+}
+}
+public static void Banking(String[]nm, String[]addrs ,int[]pin, int Id, double Bal){
+Scanner sc = new Scanner(System.in);
+double num;
+boolean flag = true;
+while(flag){
+System.out.print("\n---------------------------------\n|\t1. Deposit\t\t|\n|\t2. Withdraw\t\t|\n|\t3. View Account\t\t|\n---------------------------------\n\nEnter the number you choose: ");
+int res = sc.nextInt();
+System.out.println("---------------------------------");
+switch(res){
+case 1:
+System.out.print("Enter an Amount: ");
+num = sc.nextDouble();
+if(num<0){
+System.out.println("Negative number aren't allowed!");
+}
+else{
+Cbal(Bal += num);
+System.out.println("Deposit Succesfully! ");
+}
+break;
+case 2:
+System.out.print("Enter an Amount: ");
+num = sc.nextDouble();
+if(num<0){
+System.out.println("Negative number aren't allowed!");
+}
+else{
+if(num > Cbal(Bal)){
+System.out.println("You don't Insufficient Balance. ");
+}
+else{
+Cbal(Bal -= num);
+System.out.println("Withdraw Succesfully! ");
+}
+}
+break;
+case 3:
+ViewAccount(nm,addrs,pin,Id,Bal);
+break;
+default:
+System.out.println("Invalid Input!");
+}
+}
+}
+public static void Frm1(int Id,double Bal){
+boolean flag = true;
+int i = 0;
+String[]nm = new String[15];
+String[]addrs = new String[15];
+int[]Pin = new int[15];
+Scanner sc = new Scanner(System.in);
+
+while(flag){
+System.out.print("Choose a number from the Selection below:\n\t1.Make Account\n\t2.Exit\n\nSelect your choice: ");
+i = sc.nextInt();
+if(i < 0){
+System.out.println("Invalid Input!");
+}
+else{
+if(i == 1){
+System.out.print("Enter your name: ");
+nm[Id] = sc.next();
+System.out.print("Your Address: ");
+addrs[Id] = sc.next();
+System.out.print("Pincode: ");
+Pin[Id] = sc.nextInt();
+System.out.println("Registered Succesfully!\nThank you!");
+i++;
+System.out.println(Idnm(Id - 1) + ": " + nm[Id] + "\tAddress: " + addrs[Id]);
+Login(nm,addrs,Pin,Idnm(Id-1),Bal);
+}
+else if(i == 2){
+System.out.println("Thank you!");
+flag = false;
+break;
+}
+else{
+System.out.println("Choose a number according to the selection.\n\n");
+}
+}
+}
+}
+public static void Login(String[]name,String[]Address, int[]pin, int Id, double Bal){
+Scanner sc = new Scanner(System.in);
+System.out.print("Enter Name: ");
+String nm = sc.next();
+System.out.print("Enter Pincode: ");
+int res = sc.nextInt();
+if(res == pin[Idnm(Id-1)] || nm == name[Idnm(Id-1)]){
+System.out.println("Welcome! " + name[Idnm(Id-1)]);
+Banking(name,Address,pin,Idnm(Id-1),Bal);
+}
+else{
+System.out.println("Invalid Input!");
+}
+Frm1(Id+1, Bal = 1000);
+}
+public static void main(String[]args){
+int Id = 1;
+double Cbal = 1000;
+Frm1(Id, Cbal);
+}
+}
